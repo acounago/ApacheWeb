@@ -1,0 +1,44 @@
+services:
+  asir_bind9:
+    container_name: asir_DNS_web
+    image: ubuntu/bind9
+    ports:
+      - 53:53/tcp 
+      - 53:53/udp
+    networks:
+      bind9_subnet:
+        ipv4_address: 172.28.5.10
+    volumes:
+      - ./conf:/etc/bind
+      - ./zonas:/var/lib/bind
+  asir_apache:
+    container_name: asir_apache
+    image: httpd:latest
+    ports:
+     - 80:80
+    volumes:
+     - ./paginas:/usr/local/apache2/htdocs
+     - ./conf:/usr/local/apache2/conf    
+    networks:
+      bind9_subnet:
+        ipv4_address: 172.28.5.15
+  asir_cliente_web:
+    container_name: asir_cliente_web
+    image: ubuntu:latest    
+    stdin_open: true  
+    tty: true
+    networks:
+      bind9_subnet:
+        ipv4_address: 172.28.5.12     
+    dns:
+      - 172.28.5.10
+networks:
+  bind9_subnet: 
+    external: true
+#Otra forma de hacerlo
+##networks:
+   ##network:
+      ##ipam:
+        ##config:
+          ##subnet: 172.28.0.0/24
+          ##gateway: 172.28.0.1
