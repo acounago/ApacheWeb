@@ -11,6 +11,8 @@ services:
     volumes:
       - ./conf:/etc/bind
       - ./zonas:/var/lib/bind
+
+
   asir_apache:
     container_name: asir_apache
     image: httpd:latest
@@ -22,6 +24,8 @@ services:
     networks:
       bind9_subnet:
         ipv4_address: 172.28.5.15
+
+
   asir_cliente_web:
     container_name: asir_cliente_web
     image: ubuntu:latest    
@@ -30,6 +34,7 @@ services:
     networks:
       bind9_subnet:
         ipv4_address: 172.28.5.12     
+
     dns:
       - 172.28.5.10
 networks:
