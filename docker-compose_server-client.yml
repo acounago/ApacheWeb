@@ -24,7 +24,8 @@ services:
     networks:
       bind9_subnet:
         ipv4_address: 172.28.5.15
-
+    dns:
+      - 172.28.5.10
 
   asir_cliente_web:
     container_name: asir_cliente_web
@@ -33,8 +34,8 @@ services:
     tty: true
     networks:
       bind9_subnet:
-        ipv4_address: 172.28.5.12     
-
+        ipv4_address: 172.28.5.12  
+           
     dns:
       - 172.28.5.10
 networks:
