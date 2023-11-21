@@ -3,20 +3,15 @@
 
 ***Contenedor DNS***:
 
-    networks:
-      bind9_subnet:
-        ipv4_address: 172.28.5.10
+  ![ IP fija DNS ](./img/ipfijaDNS.png)
 
 ***Contenedor Apache***:
 
-    networks:
-      bind9_subnet:
-        ipv4_address: 172.28.5.15
+![ IP fija DNS ](./img/IPfijaapache.png)
+
 ***Contenedor Cliente***:
 
-    networks:
-      bind9_subnet:
-        ipv4_address: 172.28.5.12  
+![ IP fija DNS ](./img/ipcliente.png) 
 
 # Añadimos dos zonas al DNS
 1. www.fabulasmaravillosas.int
