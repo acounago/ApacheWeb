@@ -1,4 +1,4 @@
-# Utiliza docker-compose para configurar las IP fijas a los dos contenedores 
+# Utiliza docker-compose para configurar las IP fijas a los tres contenedores 
 **Configuramos las IPs fijas añadiendo la siguiente sección en los contenedores:**
 
 ***Contenedor DNS***:
